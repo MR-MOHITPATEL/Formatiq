@@ -439,7 +439,7 @@ export default function Controls() {
     axios.post('/api/scrape/start', {
       format_point_ids: selectedFps,
       videos_per_format: videosPerFp,
-      competitor_channels: channels.map(c => c.channel_id),
+      competitor_channels: [],
     }).then(r => setScrapeJobId(r.data.job_id))
   }
 
