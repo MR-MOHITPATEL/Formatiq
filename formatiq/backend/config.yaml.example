@@ -1,0 +1,24 @@
+# FormatIQ — Local Development Config
+# Copy this to config.yaml and fill in your keys
+# DO NOT commit config.yaml to GitHub
+
+youtube_api_key: "YOUR_YOUTUBE_API_KEY"
+gemini_api_key: "YOUR_GEMINI_API_KEY"
+gemini_model: "gemini-2.5-flash"
+gemini_script_model: "gemini-2.5-pro"
+anthropic_api_key: "YOUR_ANTHROPIC_API_KEY"
+groq_api_key: "YOUR_GROQ_API_KEY"
+groq_model: "compound-beta"
+claude_model: "claude-sonnet-4-20250514"
+niche: "Health / Nutrition / Wellness"
+analysis_batch_size: 10
+max_retries: 3
+news_search_api_key: ""
+videos_per_format_point: 100
+competitor_channels: []
+direct_competitor_channels: []
+
+script:
+  niche: "doctor / pharmaceutical"
+  shorts_target_words: 150
+  longform_target_words: 2000
