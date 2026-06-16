@@ -28,10 +28,12 @@ function FormatPointCard({ fp, onClick, active }) {
   )
 }
 
+let _fpCache = null
+
 export default function FormatPoints() {
   const { fpId } = useParams()
   const navigate = useNavigate()
-  const [formatPoints, setFormatPoints] = useState([])
+  const [formatPoints, setFormatPoints] = useState(_fpCache || [])
   const [selectedFp, setSelectedFp] = useState(null)
   const [videos, setVideos] = useState([])
   const [totalVideos, setTotalVideos] = useState(0)
@@ -40,7 +42,15 @@ export default function FormatPoints() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    if (_fpCache) {
+      if (fpId) {
+        const fp = _fpCache.find(f => f.id === Number(fpId))
+        if (fp) setSelectedFp(fp)
+      }
+      return
+    }
     axios.get('/api/format-points').then(r => {
+      _fpCache = r.data
       setFormatPoints(r.data)
       if (fpId) {
         const fp = r.data.find(f => f.id === Number(fpId))
